@@ -5,13 +5,13 @@ metadata:
   namespace: argocd
 spec:
   project: default
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: rotiva-Labs-app
   source:
     path: rotiva-labs-sample
     repoUrl: "https://github.com/shashi0396/Argo-CD.git"
     targetRevision: HEAD
-  destination:
-    server: "https://kubernetes.default.svc"
-    namespace: rotiva-Labs-app
 # -----------helm-src-chart--------------------#
     helm:                                   
     releaseName: rotiva-labs-basechart

@@ -9,8 +9,9 @@ spec:
     path: rotiva-labs-sample
     repoUrl: "https://github.com/shashi0396/Argo-CD.git"
     targetRevision: HEAD
+    directory:
+      recurse: true  # Directory of Yaml
   destination:
     server: "https://kubernetes.default.svc"
     namespace: rotiva-Labs-app
-  directory:
-    recurse: true  # Directory of Yaml
+
