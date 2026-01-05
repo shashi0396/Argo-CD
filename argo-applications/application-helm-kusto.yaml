@@ -12,3 +12,12 @@ spec:
   destination:
     server: "https://kubernetes.default.svc"
     namespace: rotiva-Labs-app
+# -----------helm-src-chart--------------------#
+    helm:                                   
+    releaseName: rotiva-labs-basechart
+    valueFiles:
+      - values.yaml  
+# -----------kustomize as src--------------------#                                 
+  # kustomize:                            # kustomize-use
+  #   version: v1.3.1
+    

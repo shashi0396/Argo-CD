@@ -46,3 +46,10 @@ This repo has manifests and procedure to installation of agro-cd &amp; basic to 
     argocd app list
     argocd app get rotiva-labs-app
 ```
+
+### Tool NOT Set , Auto-Detected by Argo
+
+Even if NOT explicitly set , Argo detects the tool as follows:
+- **Helm charts:** if there is a file as chart.yaml
+- **kustomize:** if there's a kustomization.yaml or Kustomization
+otherwise it's assumed as plain Yaml **directory** application
