@@ -12,12 +12,14 @@ spec:
     path: rotiva-labs-sample
     repoUrl: "https://github.com/shashi0396/Argo-CD.git"
     targetRevision: HEAD
-# -----------helm-src-chart--------------------#
-    helm:                                   
-    releaseName: rotiva-labs-basechart
-    valueFiles:
-      - values.yaml  
-# -----------kustomize as src--------------------#                                 
-  # kustomize:                            # kustomize-use
-  #   version: v1.3.1
-    
+# -----------kustomize as src manifest--------------------#
+    kustomize:
+      version: v3.5.4    # NOTE: Before using it, this needs to be added configmap of argocd
+      commonLabels:
+        app: demo
+        appVersion: 1.0
+      namePrefix: staging-
+      images:
+        - xxxxxxxxxxxx.ecr.ap-south-1.amazon.com/nginx-demo:latest
+
+

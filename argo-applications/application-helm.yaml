@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rotiva-Labs-app
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: rotiva-Labs-app
+  source:
+    path: rotiva-labs-sample
+    repoUrl: "https://github.com/shashi0396/Argo-CD.git"
+    targetRevision: HEAD
+# -----------helm-src-chart--------------------#
+    helm:                                   
+    releaseName: rotiva-Labs-app  # default value for release-name will be 'application name' even if not set
+    valueFiles:
+      - values.yaml
+# override any values in values.yaml 
+    parameters:                   
+      - name: "service.type"
+        value: LoadBalancer
+      - name: "image.tag"
+        value: "v2"
+# pass parameters from a config.json file
+    fileParameters:
+      - name: config
+        values: files/config.json
+  # helm values as a block in application.yaml 
+    values: |
+      ingress:
+      enable: true
+      path: /
+      hosts:
+        - nginx.rotivalabs.com
+    
