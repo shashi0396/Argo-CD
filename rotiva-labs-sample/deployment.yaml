@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rotiva-labs
+  namespace: rotiva-labs-app
+  labels:
+    app: rotiva-labs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rotiva-labs
+  template:
+    metadata:
+      labels:
+        app: rotiva-labs
+    spec:
+      containers:
+        - name: rotiva-labs
+          image: nginx:1.25
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
