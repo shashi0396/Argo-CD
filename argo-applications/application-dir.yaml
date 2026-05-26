@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    path: rotiva-labs-sample
     repoUrl: "https://github.com/shashi0396/Argo-CD.git"
     targetRevision: HEAD
+    path: rotiva-labs-sample
     directory:
       recurse: true  # Directory of Yaml
   destination:
